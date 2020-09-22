@@ -233,7 +233,7 @@ return [
             'password' => 'secret',
             'database' => 'my_app',
             'encoding' => 'utf8',
-            'timezone' => 'UTC',
+            'timezone' => '+09:00',
             'flags' => [],
             'cacheMetadata' => true,
             'log' => false,

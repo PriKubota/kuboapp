@@ -57,6 +57,8 @@ class AppController extends Controller
                 'controller' => 'Users',
                 'action' => 'login'
             ],
+
+            'authorize' => ['Controller'],
             'authenticate' => [
                 'Form' => [
                   'userModel' => 'Users',
@@ -68,7 +70,7 @@ class AppController extends Controller
             ],
         ]);
  
-        $this->Auth->allow(['login', 'add', 'test']);
+        $this->Auth->allow(['login', 'add', 'test', 'index']);
  
         /*
          * Enable the following components for recommended CakePHP security settings.

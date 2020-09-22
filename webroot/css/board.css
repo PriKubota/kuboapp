@@ -1,0 +1,41 @@
+body {
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.honbun {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.label {
+    vertical-align: top;
+    margin-right: 10px;
+}
+
+.toukou {
+    border-top: 1px solid;
+    margin: 40px auto
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.modal-contets {
+    width: 50%;
+    margin: 1.5em auto 0;
+    padding: 10px 20px;
+    border: 2px solid #aaa;
+    background: #FFFF66;
+    z-index: 2;
+}
+
+#boardModal {
+    width: 50%;
+    margin: 1.5em auto 0;
+    padding: 10px 20px;
+    border: 2px solid #aaa;
+    background: #FFFF66;
+    z-index: 2;
+}
