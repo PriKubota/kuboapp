@@ -46,31 +46,31 @@ class AppController extends Controller
         ]);
         $this->loadComponent('Flash');
         
-        $this->loadComponent('Auth', [
-            //ログイン後のリダイレクト先設定
-            'loginRedirect' => [
-                'controller' => 'Users',
-                'action' => 'index'
-            ],
-            //ログアウト後のリダイレクト先設定
-            'logoutRedirect' => [
-                'controller' => 'Users',
-                'action' => 'login'
-            ],
+        // $this->loadComponent('Auth', [
+        //     //ログイン後のリダイレクト先設定
+        //     'loginRedirect' => [
+        //         'controller' => 'Users',
+        //         'action' => 'index'
+        //     ],
+        //     //ログアウト後のリダイレクト先設定
+        //     'logoutRedirect' => [
+        //         'controller' => 'Users',
+        //         'action' => 'login'
+        //     ],
 
-            'authorize' => ['Controller'],
-            'authenticate' => [
-                'Form' => [
-                  'userModel' => 'Users',
-                  'fields' => [
-                    'username' => 'username',
-                    'password' => 'password'
-                  ]
-                ]
-            ],
-        ]);
+        //     'authorize' => ['Controller'],
+        //     'authenticate' => [
+        //         'Form' => [
+        //           'userModel' => 'Users',
+        //           'fields' => [
+        //             'username' => 'username',
+        //             'password' => 'password'
+        //           ]
+        //         ]
+        //     ],
+        //]);
  
-        $this->Auth->allow(['login', 'add', 'test', 'index']);
+        //$this->Auth->allow(['login', 'add', 'test', 'index']);
  
         /*
          * Enable the following components for recommended CakePHP security settings.

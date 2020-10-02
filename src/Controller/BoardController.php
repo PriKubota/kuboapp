@@ -30,19 +30,12 @@ class BoardController extends AppController
         if ($this->request->is('post')) {
             $data = $this->request->data();
             $entity = $this->Board->newEntity();
-            
-            $connection = ConnectionManager::get('default');
-            $connection->begin();
-
-            try {
-                $board = $this->Board->patchEntity($entity, $data);
-                $this->Board->save($board);
-                return $this->redirect(['action' => 'send']);
-                $connection->rollback();    
-            } catch (Exception $ex) {
-                $connection->rollback();
-                throw new InternalErrorException(__('An unexpected error occurred'));
+            $board = $this->Board->patchEntity($entity, $data);
+            if($this->Board->save($board)) {
+                $this->Flash->success(__('登録しました！'));
+                return $this->redirect(['action' => 'index']);
             }
+            
         }
 
         $board = $this->Board->find()->order(['created' => 'DESC'])->where(['del_flg' => '0'])->limit('10')->toArray();
@@ -71,18 +64,10 @@ class BoardController extends AppController
         $board = $this->Board->findById($id)->first();
         $board['del_flg'] = '1';
 
-        $connection = ConnectionManager::get('default');
-        $connection->begin();
-
-        try {
-            if ($this->Board->save($board)) {
-                $this->Flash->success(__('MessageSuccess'));
-                return $this->redirect(['action' => 'index']);
-            }
-            $connection->rollback();    
-        } catch (Exception $ex) {
-            $connection->rollback();    
-            throw new InternalErrorException(__('An unexpected error occurred'));
+        
+        if ($this->Board->save($board)) {
+            $this->Flash->success(__('削除しました！'));
+            return $this->redirect(['action' => 'index']);
         }
     }
 }

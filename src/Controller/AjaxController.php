@@ -16,6 +16,7 @@ class AjaxController extends AppController
     {
         parent::beforeFilter($event);
     }
+    
 
     /**
      * 掲示板データを取得

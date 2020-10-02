@@ -9,6 +9,7 @@ class Board extends Entity {
         'id' => true,
         'name' => true,
         'contents' => true,
+        'del_flg' => true,
         'created' => true,
         'modified' => true
     ];
